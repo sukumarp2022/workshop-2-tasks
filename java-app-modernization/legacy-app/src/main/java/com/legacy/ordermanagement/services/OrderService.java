@@ -40,6 +40,22 @@ public class OrderService {
     private static final double BULK_DISCOUNT_THRESHOLD = 100.0;
     private static final double BULK_DISCOUNT_PERCENT = 5.0;
 
+    public List<Order> getAllOrders() {
+        return orderRepository.getAllOrders();
+    }
+
+    public Order getOrderById(Long id) {
+        return orderRepository.getOrderById(id);
+    }
+
+    public List<Order> getOrdersByStatus(String status) {
+        return orderRepository.getOrdersByStatus(status);
+    }
+
+    public void deleteOrder(Long id) {
+        orderRepository.deleteOrder(id);
+    }
+
     /**
      * Places an order — does EVERYTHING: validation, pricing, inventory, notifications.
      * This method is way too long and does too much.
